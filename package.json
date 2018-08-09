@@ -1,0 +1,27 @@
+{
+  "name": "xml-json",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rio84/xml-json.git"
+  },
+  "files":[
+    "index.js",
+    "libs"
+  ],
+  "keywords": [
+    "xmljson"
+  ],
+  "dependencies":{
+    
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  }
+ 
+}
