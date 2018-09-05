@@ -2,7 +2,10 @@
  * Created by shelwin on 15-3-20.
  *
  * update by RIO84 2015/8/21
+
+ 20180814 解决　TypeError: node_data.toString is not a function
  */
+
 //copyright Ryan Day 2010 <http://ryanday.org>, Joscha Feth 2013 <http://www.feth.com> [MIT Licensed]
 
 var element_start_char =
@@ -45,10 +48,14 @@ var process_to_xml = function(node_data,options){
             type = 'date';
         }
 
-        if(type=='object' && node_data && '[object Object]'!=node_data.toString()){
-            //ObjectID
+        //console.log('node_data',node_data.toString(),node_data,node_data.constructor)
+        if(type=='object' && node_data && node_data.constructor!=Object){
+           
+            //这一逻辑主要处理ObjectID这样的非数据对象(plainObject)
             type='string';
-            node_data=node_data.toString();
+            node_data=node_data.toString?node_data.toString():'';
+            
+            
         }
 
 

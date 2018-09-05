@@ -1,4 +1,5 @@
 /**
+    2018/8/13 判断nodeType
  * 2017/3/22
  * 先凑合用吧,没经太仔细调试
     @update 2017/11/11
@@ -27,8 +28,14 @@ var nodetoJSON=function(childNodes){
             obj={};
         }
     }else if(childNodes.length==1){
+        //console.log('nodeType',firstChild.nodeType)
         //只有一个文本节点
-        return firstChild.nodeValue
+        if(firstChild.nodeType==3||firstChild.nodeType==4){
+            //排除注释等干扰
+            return firstChild.nodeValue
+        }
+        return null
+        
     }else{
 
         return nodetoJSON([].slice.call(childNodes,1));
